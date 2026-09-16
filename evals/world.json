@@ -1,0 +1,124 @@
+{
+  "company": {
+    "name": "Rivera Componentes Industriales S.L.",
+    "tax_id": "B46123451",
+    "address": "Calle de Colón 18, 46004 Valencia"
+  },
+  "vendors": [
+    {
+      "id": "V001",
+      "name": "Papelería Central Valencia S.L.",
+      "tax_id": "B46871232",
+      "address": "Avenida del Puerto 112, 46023 Valencia",
+      "iban": "ES9121000418450200051332",
+      "vendor_type": "company",
+      "requires_po": false,
+      "aliases": ["Papeleria Central"],
+      "default_account": "629"
+    },
+    {
+      "id": "V002",
+      "name": "Suministros Eléctricos Levante S.L.",
+      "tax_id": "B98765431",
+      "address": "Calle Ciudad de Sevilla 12, 46988 Paterna",
+      "iban": "ES6000491500051234567892",
+      "vendor_type": "company",
+      "requires_po": false,
+      "aliases": ["SEL Energía"],
+      "default_account": "628"
+    },
+    {
+      "id": "V003",
+      "name": "Laura Gómez Ruiz",
+      "tax_id": "48291735S",
+      "address": "Calle de la Paz 7, 3º, 46003 Valencia",
+      "iban": "ES1001822370420201234567",
+      "vendor_type": "professional",
+      "requires_po": false,
+      "aliases": [],
+      "default_account": "623"
+    },
+    {
+      "id": "V004",
+      "name": "Inmobiliaria Puerto de Valencia S.L.",
+      "tax_id": "B03456787",
+      "address": "Avenida de Aragón 30, 46021 Valencia",
+      "iban": "ES5220850101234567891234",
+      "vendor_type": "landlord",
+      "requires_po": false,
+      "aliases": [],
+      "default_account": "621"
+    },
+    {
+      "id": "V005",
+      "name": "TecnoHardware Ibérica S.L.",
+      "tax_id": "B46234563",
+      "address": "Calle de Guillem de Castro 90, 46008 Valencia",
+      "iban": "ES6600810216700001234567",
+      "vendor_type": "company",
+      "requires_po": true,
+      "aliases": ["TecnoHardware"],
+      "default_account": "629"
+    },
+    {
+      "id": "V006",
+      "name": "Transportes Rápidos del Norte S.L.",
+      "tax_id": "B48111223",
+      "address": "Calle Ribera de Deusto 50, 48014 Bilbao",
+      "iban": "ES1330580100271234567890",
+      "vendor_type": "company",
+      "requires_po": false,
+      "aliases": ["TRN Transportes"],
+      "default_account": "624"
+    },
+    {
+      "id": "V007",
+      "name": "Cafés y Catering Turia S.L.",
+      "tax_id": "B46555660",
+      "address": "Calle de Russafa 45, 46004 Valencia",
+      "iban": "ES3114650100981234567890",
+      "vendor_type": "company",
+      "requires_po": false,
+      "aliases": [],
+      "default_account": "629"
+    },
+    {
+      "id": "V008",
+      "name": "Limpiezas Brillo S.L.",
+      "tax_id": "B29444338",
+      "address": "Calle Larios 3, 29005 Málaga",
+      "iban": "ES0321001234561234567890",
+      "vendor_type": "company",
+      "requires_po": false,
+      "aliases": [],
+      "default_account": "622"
+    },
+    {
+      "id": "V009",
+      "name": "CloudNord GmbH",
+      "tax_id": "DE123456789",
+      "address": "Friedrichstraße 100, 10117 Berlin, Germany",
+      "iban": "DE89370400440532013000",
+      "vendor_type": "eu_company",
+      "requires_po": false,
+      "aliases": ["CloudNord"],
+      "default_account": "629"
+    }
+  ],
+  "accounts": [
+    { "code": "600", "name": "Compras de mercaderías" },
+    { "code": "602", "name": "Compras de otros aprovisionamientos" },
+    { "code": "621", "name": "Arrendamientos y cánones" },
+    { "code": "622", "name": "Reparaciones y conservación" },
+    { "code": "623", "name": "Servicios de profesionales independientes" },
+    { "code": "624", "name": "Transportes" },
+    { "code": "625", "name": "Primas de seguros" },
+    { "code": "626", "name": "Servicios bancarios y similares" },
+    { "code": "627", "name": "Publicidad, propaganda y relaciones públicas" },
+    { "code": "628", "name": "Suministros" },
+    { "code": "629", "name": "Otros servicios" },
+    { "code": "206", "name": "Aplicaciones informáticas" },
+    { "code": "216", "name": "Mobiliario" },
+    { "code": "217", "name": "Equipos para procesos de información" }
+  ]
+}
