@@ -1,0 +1,48 @@
+{
+  "case_id": "G002",
+  "description": "Clean invoice with two VAT rates (10% catering, 21% equipment rental)",
+  "source": "synthetic",
+  "invoice": {
+    "invoice_number": "CT/26/0877",
+    "issue_date": "2026-09-04",
+    "issuer_name": "Cafés y Catering Turia S.L.",
+    "issuer_tax_id": "B46555660",
+    "issuer_address": "Calle de Russafa 45, 46004 Valencia",
+    "issuer_iban": "ES3114650100981234567890",
+    "recipient_name": "Rivera Componentes Industriales S.L.",
+    "recipient_tax_id": "B46123451",
+    "lines": [
+      {
+        "description": "Catering reunión de clientes (25 personas)",
+        "quantity": "1",
+        "unit_price": "350.00",
+        "vat_rate": "10",
+        "line_total": "350.00"
+      },
+      {
+        "description": "Alquiler cafetera industrial",
+        "quantity": "1",
+        "unit_price": "40.00",
+        "vat_rate": "21",
+        "line_total": "40.00"
+      }
+    ],
+    "tax_breakdown": [
+      {
+        "base": "350.00",
+        "rate": "10",
+        "amount": "35.00"
+      },
+      {
+        "base": "40.00",
+        "rate": "21",
+        "amount": "8.40"
+      }
+    ],
+    "subtotal": "390.00",
+    "vat_total": "43.40",
+    "total": "433.40",
+    "language": "es"
+  },
+  "expected_issue_codes": []
+}

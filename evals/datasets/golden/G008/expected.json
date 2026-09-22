@@ -1,0 +1,38 @@
+{
+  "case_id": "G008",
+  "description": "Trap: invoice number is missing",
+  "source": "synthetic",
+  "invoice": {
+    "invoice_number": null,
+    "issue_date": "2026-09-11",
+    "issuer_name": "Papelería Central Valencia S.L.",
+    "issuer_tax_id": "B46871232",
+    "issuer_address": "Avenida del Puerto 112, 46023 Valencia",
+    "issuer_iban": "ES9121000418450200051332",
+    "recipient_name": "Rivera Componentes Industriales S.L.",
+    "recipient_tax_id": "B46123451",
+    "lines": [
+      {
+        "description": "Archivadores de palanca A4",
+        "quantity": "10",
+        "unit_price": "3.20",
+        "vat_rate": "21",
+        "line_total": "32.00"
+      }
+    ],
+    "tax_breakdown": [
+      {
+        "base": "32.00",
+        "rate": "21",
+        "amount": "6.72"
+      }
+    ],
+    "subtotal": "32.00",
+    "vat_total": "6.72",
+    "total": "38.72",
+    "language": "es"
+  },
+  "expected_issue_codes": [
+    "MISSING_FIELD"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "G003",
+  "description": "Clean freelancer invoice with 15% IRPF withholding",
+  "source": "synthetic",
+  "invoice": {
+    "invoice_number": "2026-031",
+    "issue_date": "2026-09-05",
+    "issuer_name": "Laura Gómez Ruiz",
+    "issuer_tax_id": "48291735S",
+    "issuer_address": "Calle de la Paz 7, 3º, 46003 Valencia",
+    "issuer_iban": "ES1001822370420201234567",
+    "recipient_name": "Rivera Componentes Industriales S.L.",
+    "recipient_tax_id": "B46123451",
+    "lines": [
+      {
+        "description": "Consultoría de mejora de procesos - septiembre 2026",
+        "quantity": "1",
+        "unit_price": "800.00",
+        "vat_rate": "21",
+        "line_total": "800.00"
+      }
+    ],
+    "tax_breakdown": [
+      {
+        "base": "800.00",
+        "rate": "21",
+        "amount": "168.00"
+      }
+    ],
+    "irpf_rate": "15",
+    "irpf_amount": "120.00",
+    "subtotal": "800.00",
+    "vat_total": "168.00",
+    "total": "848.00",
+    "language": "es"
+  },
+  "expected_issue_codes": []
+}

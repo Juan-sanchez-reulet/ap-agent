@@ -1,0 +1,38 @@
+{
+  "case_id": "G004",
+  "description": "Clean office rent invoice with 19% IRPF withholding",
+  "source": "synthetic",
+  "invoice": {
+    "invoice_number": "ALQ-2026-10",
+    "issue_date": "2026-09-01",
+    "issuer_name": "Inmobiliaria Puerto de Valencia S.L.",
+    "issuer_tax_id": "B03456787",
+    "issuer_address": "Avenida de Aragón 30, 46021 Valencia",
+    "issuer_iban": "ES5220850101234567891234",
+    "recipient_name": "Rivera Componentes Industriales S.L.",
+    "recipient_tax_id": "B46123451",
+    "lines": [
+      {
+        "description": "Alquiler oficina Calle de Colón 18 - octubre 2026",
+        "quantity": "1",
+        "unit_price": "1200.00",
+        "vat_rate": "21",
+        "line_total": "1200.00"
+      }
+    ],
+    "tax_breakdown": [
+      {
+        "base": "1200.00",
+        "rate": "21",
+        "amount": "252.00"
+      }
+    ],
+    "irpf_rate": "19",
+    "irpf_amount": "228.00",
+    "subtotal": "1200.00",
+    "vat_total": "252.00",
+    "total": "1224.00",
+    "language": "es"
+  },
+  "expected_issue_codes": []
+}

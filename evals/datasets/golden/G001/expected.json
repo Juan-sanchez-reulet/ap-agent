@@ -1,0 +1,43 @@
+{
+  "case_id": "G001",
+  "description": "Clean invoice, two lines, single 21% VAT rate",
+  "source": "synthetic",
+  "invoice": {
+    "invoice_number": "PC-2026-0412",
+    "issue_date": "2026-09-02",
+    "issuer_name": "Papelería Central Valencia S.L.",
+    "issuer_tax_id": "B46871232",
+    "issuer_address": "Avenida del Puerto 112, 46023 Valencia",
+    "issuer_iban": "ES9121000418450200051332",
+    "recipient_name": "Rivera Componentes Industriales S.L.",
+    "recipient_tax_id": "B46123451",
+    "lines": [
+      {
+        "description": "Papel A4 80 g (caja 5 paquetes)",
+        "quantity": "20",
+        "unit_price": "4.50",
+        "vat_rate": "21",
+        "line_total": "90.00"
+      },
+      {
+        "description": "Tóner HP 85A",
+        "quantity": "2",
+        "unit_price": "62.00",
+        "vat_rate": "21",
+        "line_total": "124.00"
+      }
+    ],
+    "tax_breakdown": [
+      {
+        "base": "214.00",
+        "rate": "21",
+        "amount": "44.94"
+      }
+    ],
+    "subtotal": "214.00",
+    "vat_total": "44.94",
+    "total": "258.94",
+    "language": "es"
+  },
+  "expected_issue_codes": []
+}

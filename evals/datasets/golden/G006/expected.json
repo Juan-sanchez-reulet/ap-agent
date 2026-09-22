@@ -1,0 +1,38 @@
+{
+  "case_id": "G006",
+  "description": "Trap: line total does not equal quantity x unit price",
+  "source": "synthetic",
+  "invoice": {
+    "invoice_number": "TRN-26-1190",
+    "issue_date": "2026-09-09",
+    "issuer_name": "Transportes Rápidos del Norte S.L.",
+    "issuer_tax_id": "B48111223",
+    "issuer_address": "Calle Ribera de Deusto 50, 48014 Bilbao",
+    "issuer_iban": "ES1330580100271234567890",
+    "recipient_name": "Rivera Componentes Industriales S.L.",
+    "recipient_tax_id": "B46123451",
+    "lines": [
+      {
+        "description": "Portes Valencia - Bilbao (palé)",
+        "quantity": "3",
+        "unit_price": "145.00",
+        "vat_rate": "21",
+        "line_total": "445.00"
+      }
+    ],
+    "tax_breakdown": [
+      {
+        "base": "445.00",
+        "rate": "21",
+        "amount": "93.45"
+      }
+    ],
+    "subtotal": "445.00",
+    "vat_total": "93.45",
+    "total": "538.45",
+    "language": "es"
+  },
+  "expected_issue_codes": [
+    "LINE_TOTAL_MISMATCH"
+  ]
+}

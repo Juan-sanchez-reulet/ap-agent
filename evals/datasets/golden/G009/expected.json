@@ -1,0 +1,38 @@
+{
+  "case_id": "G009",
+  "description": "Trap: invoice is addressed to a different company",
+  "source": "synthetic",
+  "invoice": {
+    "invoice_number": "TH-2026-5521",
+    "issue_date": "2026-09-12",
+    "issuer_name": "TecnoHardware Ibérica S.L.",
+    "issuer_tax_id": "B46234563",
+    "issuer_address": "Calle de Guillem de Castro 90, 46008 Valencia",
+    "issuer_iban": "ES6600810216700001234567",
+    "recipient_name": "Rivera Logística S.L.",
+    "recipient_tax_id": "B12345674",
+    "lines": [
+      {
+        "description": "Monitor 27 pulgadas QHD",
+        "quantity": "2",
+        "unit_price": "189.00",
+        "vat_rate": "21",
+        "line_total": "378.00"
+      }
+    ],
+    "tax_breakdown": [
+      {
+        "base": "378.00",
+        "rate": "21",
+        "amount": "79.38"
+      }
+    ],
+    "subtotal": "378.00",
+    "vat_total": "79.38",
+    "total": "457.38",
+    "language": "es"
+  },
+  "expected_issue_codes": [
+    "WRONG_RECIPIENT"
+  ]
+}

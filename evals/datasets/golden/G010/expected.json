@@ -1,0 +1,38 @@
+{
+  "case_id": "G010",
+  "description": "Trap: VAT amount wrong for its base (English template)",
+  "source": "synthetic",
+  "invoice": {
+    "invoice_number": "TH-2026-5540",
+    "issue_date": "2026-09-14",
+    "issuer_name": "TecnoHardware Ibérica S.L.",
+    "issuer_tax_id": "B46234563",
+    "issuer_address": "Calle de Guillem de Castro 90, 46008 Valencia",
+    "issuer_iban": "ES6600810216700001234567",
+    "recipient_name": "Rivera Componentes Industriales S.L.",
+    "recipient_tax_id": "B46123451",
+    "lines": [
+      {
+        "description": "USB-C docking station",
+        "quantity": "4",
+        "unit_price": "95.00",
+        "vat_rate": "21",
+        "line_total": "380.00"
+      }
+    ],
+    "tax_breakdown": [
+      {
+        "base": "380.00",
+        "rate": "21",
+        "amount": "76.00"
+      }
+    ],
+    "subtotal": "380.00",
+    "vat_total": "76.00",
+    "total": "456.00",
+    "language": "en"
+  },
+  "expected_issue_codes": [
+    "VAT_AMOUNT_MISMATCH"
+  ]
+}

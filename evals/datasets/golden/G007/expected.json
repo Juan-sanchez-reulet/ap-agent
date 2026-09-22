@@ -1,0 +1,38 @@
+{
+  "case_id": "G007",
+  "description": "Trap: issuer CIF has a wrong check digit",
+  "source": "synthetic",
+  "invoice": {
+    "invoice_number": "LB-2026-0098",
+    "issue_date": "2026-09-10",
+    "issuer_name": "Limpiezas Brillo S.L.",
+    "issuer_tax_id": "B29444339",
+    "issuer_address": "Calle Larios 3, 29005 Málaga",
+    "issuer_iban": "ES0321001234561234567890",
+    "recipient_name": "Rivera Componentes Industriales S.L.",
+    "recipient_tax_id": "B46123451",
+    "lines": [
+      {
+        "description": "Limpieza de oficinas - septiembre 2026",
+        "quantity": "1",
+        "unit_price": "420.00",
+        "vat_rate": "21",
+        "line_total": "420.00"
+      }
+    ],
+    "tax_breakdown": [
+      {
+        "base": "420.00",
+        "rate": "21",
+        "amount": "88.20"
+      }
+    ],
+    "subtotal": "420.00",
+    "vat_total": "88.20",
+    "total": "508.20",
+    "language": "es"
+  },
+  "expected_issue_codes": [
+    "INVALID_TAX_ID"
+  ]
+}

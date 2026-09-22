@@ -1,0 +1,38 @@
+{
+  "case_id": "G005",
+  "description": "Trap: printed total is 10.00 higher than subtotal + VAT",
+  "source": "synthetic",
+  "invoice": {
+    "invoice_number": "SEL-0925-3381",
+    "issue_date": "2026-09-08",
+    "issuer_name": "Suministros Eléctricos Levante S.L.",
+    "issuer_tax_id": "B98765431",
+    "issuer_address": "Calle Ciudad de Sevilla 12, 46988 Paterna",
+    "issuer_iban": "ES6000491500051234567892",
+    "recipient_name": "Rivera Componentes Industriales S.L.",
+    "recipient_tax_id": "B46123451",
+    "lines": [
+      {
+        "description": "Consumo eléctrico agosto 2026",
+        "quantity": "1",
+        "unit_price": "310.25",
+        "vat_rate": "21",
+        "line_total": "310.25"
+      }
+    ],
+    "tax_breakdown": [
+      {
+        "base": "310.25",
+        "rate": "21",
+        "amount": "65.15"
+      }
+    ],
+    "subtotal": "310.25",
+    "vat_total": "65.15",
+    "total": "385.40",
+    "language": "es"
+  },
+  "expected_issue_codes": [
+    "TOTAL_MISMATCH"
+  ]
+}
