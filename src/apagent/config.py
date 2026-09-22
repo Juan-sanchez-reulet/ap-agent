@@ -8,6 +8,6 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_prefix="APAGENT_", extra="ignore")
 
     google_api_key: SecretStr | None = Field(default=None, validation_alias="GOOGLE_API_KEY")
-    model: str = "google_genai:gemini-2.5-flash"
+    model: str = "google_genai:gemini-3.5-flash-lite"
     requests_per_minute: float = 10.0
     cache_dir: Path = Path(".cache/llm")

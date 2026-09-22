@@ -55,12 +55,13 @@ def main() -> None:
             else []
         )
         expected = sorted(set(case.expected.expected_issue_codes))
+        measured = not (extraction.error or "").startswith("LLM_ERROR")
         results.append(
             CaseResult(
                 case_id=case.expected.case_id,
                 error=extraction.error,
                 fields=score_fields(case.expected.invoice, extraction.invoice),
-                issues=score_issues(set(expected), set(predicted)),
+                issues=score_issues(set(expected), set(predicted)) if measured else {},
                 predicted_codes=predicted,
                 expected_codes=expected,
                 llm_calls=extraction.llm_calls,

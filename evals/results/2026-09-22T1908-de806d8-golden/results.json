@@ -1,0 +1,736 @@
+{
+  "summary": {
+    "model": "google_genai:gemini-3.5-flash-lite",
+    "cases": 10,
+    "measured_cases": 10,
+    "not_measured": 0,
+    "extraction_errors": 0,
+    "field_accuracy": {
+      "invoice_number": 1.0,
+      "issue_date": 1.0,
+      "issuer_tax_id": 1.0,
+      "recipient_tax_id": 1.0,
+      "subtotal": 1.0,
+      "vat_total": 1.0,
+      "irpf_amount": 1.0,
+      "total": 1.0
+    },
+    "all_critical_fields_correct": 1.0,
+    "detection": {
+      "INVALID_TAX_ID": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "LINE_TOTAL_MISMATCH": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "MISSING_FIELD": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "TOTAL_MISMATCH": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "VAT_AMOUNT_MISMATCH": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "WRONG_RECIPIENT": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "detection_overall": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "llm_calls": 10,
+    "cache_hits": 0,
+    "seconds_total": 184.4
+  },
+  "cases": [
+    {
+      "case_id": "G001",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "PC-2026-0412",
+          "actual": "PC-2026-0412",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-02",
+          "actual": "2026-09-02",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B46871232",
+          "actual": "B46871232",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "214.00",
+          "actual": "214.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "44.94",
+          "actual": "44.94",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "258.94",
+          "actual": "258.94",
+          "correct": true
+        }
+      ],
+      "issues": {},
+      "predicted_codes": [],
+      "expected_codes": [],
+      "llm_calls": 1,
+      "cache_hit": false,
+      "seconds": 22.954001375008374
+    },
+    {
+      "case_id": "G002",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "CT/26/0877",
+          "actual": "CT/26/0877",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-04",
+          "actual": "2026-09-04",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B46555660",
+          "actual": "B46555660",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "390.00",
+          "actual": "390.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "43.40",
+          "actual": "43.40",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "433.40",
+          "actual": "433.40",
+          "correct": true
+        }
+      ],
+      "issues": {},
+      "predicted_codes": [],
+      "expected_codes": [],
+      "llm_calls": 1,
+      "cache_hit": false,
+      "seconds": 19.52767912496347
+    },
+    {
+      "case_id": "G003",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "2026-031",
+          "actual": "2026-031",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-05",
+          "actual": "2026-09-05",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "48291735S",
+          "actual": "48291735S",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "800.00",
+          "actual": "800.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "168.00",
+          "actual": "168.00",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "120.00",
+          "actual": "120.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "848.00",
+          "actual": "848.00",
+          "correct": true
+        }
+      ],
+      "issues": {},
+      "predicted_codes": [],
+      "expected_codes": [],
+      "llm_calls": 1,
+      "cache_hit": false,
+      "seconds": 1.7383674169541337
+    },
+    {
+      "case_id": "G004",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "ALQ-2026-10",
+          "actual": "ALQ-2026-10",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-01",
+          "actual": "2026-09-01",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B03456787",
+          "actual": "B03456787",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "1200.00",
+          "actual": "1200.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "252.00",
+          "actual": "252.00",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "228.00",
+          "actual": "228.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "1224.00",
+          "actual": "1224.00",
+          "correct": true
+        }
+      ],
+      "issues": {},
+      "predicted_codes": [],
+      "expected_codes": [],
+      "llm_calls": 1,
+      "cache_hit": false,
+      "seconds": 23.74020283401478
+    },
+    {
+      "case_id": "G005",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "SEL-0925-3381",
+          "actual": "SEL-0925-3381",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-08",
+          "actual": "2026-09-08",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B98765431",
+          "actual": "B98765431",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "310.25",
+          "actual": "310.25",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "65.15",
+          "actual": "65.15",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "385.40",
+          "actual": "385.40",
+          "correct": true
+        }
+      ],
+      "issues": {
+        "TOTAL_MISMATCH": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "predicted_codes": [
+        "TOTAL_MISMATCH"
+      ],
+      "expected_codes": [
+        "TOTAL_MISMATCH"
+      ],
+      "llm_calls": 1,
+      "cache_hit": false,
+      "seconds": 1.5365582500235178
+    },
+    {
+      "case_id": "G006",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "TRN-26-1190",
+          "actual": "TRN-26-1190",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-09",
+          "actual": "2026-09-09",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B48111223",
+          "actual": "B48111223",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "445.00",
+          "actual": "445.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "93.45",
+          "actual": "93.45",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "538.45",
+          "actual": "538.45",
+          "correct": true
+        }
+      ],
+      "issues": {
+        "LINE_TOTAL_MISMATCH": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "predicted_codes": [
+        "LINE_TOTAL_MISMATCH"
+      ],
+      "expected_codes": [
+        "LINE_TOTAL_MISMATCH"
+      ],
+      "llm_calls": 1,
+      "cache_hit": false,
+      "seconds": 6.459022332972381
+    },
+    {
+      "case_id": "G007",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "LB-2026-0098",
+          "actual": "LB-2026-0098",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-10",
+          "actual": "2026-09-10",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B29444339",
+          "actual": "B29444339",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "420.00",
+          "actual": "420.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "88.20",
+          "actual": "88.20",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "508.20",
+          "actual": "508.20",
+          "correct": true
+        }
+      ],
+      "issues": {
+        "INVALID_TAX_ID": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "predicted_codes": [
+        "INVALID_TAX_ID"
+      ],
+      "expected_codes": [
+        "INVALID_TAX_ID"
+      ],
+      "llm_calls": 1,
+      "cache_hit": false,
+      "seconds": 58.061397166980896
+    },
+    {
+      "case_id": "G008",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-11",
+          "actual": "2026-09-11",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B46871232",
+          "actual": "B46871232",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "32.00",
+          "actual": "32.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "6.72",
+          "actual": "6.72",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "38.72",
+          "actual": "38.72",
+          "correct": true
+        }
+      ],
+      "issues": {
+        "MISSING_FIELD": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "predicted_codes": [
+        "MISSING_FIELD"
+      ],
+      "expected_codes": [
+        "MISSING_FIELD"
+      ],
+      "llm_calls": 1,
+      "cache_hit": false,
+      "seconds": 33.11836162500549
+    },
+    {
+      "case_id": "G009",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "TH-2026-5521",
+          "actual": "TH-2026-5521",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-12",
+          "actual": "2026-09-12",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B46234563",
+          "actual": "B46234563",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B12345674",
+          "actual": "B12345674",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "378.00",
+          "actual": "378.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "79.38",
+          "actual": "79.38",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "457.38",
+          "actual": "457.38",
+          "correct": true
+        }
+      ],
+      "issues": {
+        "WRONG_RECIPIENT": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "predicted_codes": [
+        "WRONG_RECIPIENT"
+      ],
+      "expected_codes": [
+        "WRONG_RECIPIENT"
+      ],
+      "llm_calls": 1,
+      "cache_hit": false,
+      "seconds": 15.131020125001669
+    },
+    {
+      "case_id": "G010",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "TH-2026-5540",
+          "actual": "TH-2026-5540",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-14",
+          "actual": "2026-09-14",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B46234563",
+          "actual": "B46234563",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "380.00",
+          "actual": "380.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "76.00",
+          "actual": "76.00",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "456.00",
+          "actual": "456.00",
+          "correct": true
+        }
+      ],
+      "issues": {
+        "VAT_AMOUNT_MISMATCH": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "predicted_codes": [
+        "VAT_AMOUNT_MISMATCH"
+      ],
+      "expected_codes": [
+        "VAT_AMOUNT_MISMATCH"
+      ],
+      "llm_calls": 1,
+      "cache_hit": false,
+      "seconds": 2.093523500021547
+    }
+  ]
+}

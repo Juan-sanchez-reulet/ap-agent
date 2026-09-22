@@ -1,0 +1,727 @@
+{
+  "summary": {
+    "model": "google_genai:gemini-3.6-flash",
+    "cases": 10,
+    "extraction_errors": 3,
+    "field_accuracy": {
+      "invoice_number": 0.7,
+      "issue_date": 0.7,
+      "issuer_tax_id": 0.7,
+      "recipient_tax_id": 0.7,
+      "subtotal": 0.7,
+      "vat_total": 0.7,
+      "irpf_amount": 0.7,
+      "total": 0.7
+    },
+    "all_critical_fields_correct": 0.7,
+    "detection": {
+      "INVALID_TAX_ID": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0
+      },
+      "LINE_TOTAL_MISMATCH": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "MISSING_FIELD": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "TOTAL_MISMATCH": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "VAT_AMOUNT_MISMATCH": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0
+      },
+      "WRONG_RECIPIENT": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0
+      }
+    },
+    "detection_overall": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 3,
+      "precision": 1.0,
+      "recall": 0.5
+    },
+    "llm_calls": 0,
+    "seconds_total": 0.0
+  },
+  "cases": [
+    {
+      "case_id": "G001",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "PC-2026-0412",
+          "actual": "PC-2026-0412",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-02",
+          "actual": "2026-09-02",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B46871232",
+          "actual": "B46871232",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "214.00",
+          "actual": "214.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "44.94",
+          "actual": "44.94",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "258.94",
+          "actual": "258.94",
+          "correct": true
+        }
+      ],
+      "issues": {},
+      "predicted_codes": [],
+      "expected_codes": [],
+      "llm_calls": 0,
+      "cache_hit": true,
+      "seconds": 0.0003559580072760582
+    },
+    {
+      "case_id": "G002",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "CT/26/0877",
+          "actual": "CT/26/0877",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-04",
+          "actual": "2026-09-04",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B46555660",
+          "actual": "B46555660",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "390.00",
+          "actual": "390.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "43.40",
+          "actual": "43.40",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "433.40",
+          "actual": "433.40",
+          "correct": true
+        }
+      ],
+      "issues": {},
+      "predicted_codes": [],
+      "expected_codes": [],
+      "llm_calls": 0,
+      "cache_hit": true,
+      "seconds": 0.00021129200467839837
+    },
+    {
+      "case_id": "G003",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "2026-031",
+          "actual": "2026-031",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-05",
+          "actual": "2026-09-05",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "48291735S",
+          "actual": "48291735S",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "800.00",
+          "actual": "800.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "168.00",
+          "actual": "168.00",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "120.00",
+          "actual": "120.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "848.00",
+          "actual": "848.00",
+          "correct": true
+        }
+      ],
+      "issues": {},
+      "predicted_codes": [],
+      "expected_codes": [],
+      "llm_calls": 0,
+      "cache_hit": true,
+      "seconds": 0.00019641697872430086
+    },
+    {
+      "case_id": "G004",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "ALQ-2026-10",
+          "actual": "ALQ-2026-10",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-01",
+          "actual": "2026-09-01",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B03456787",
+          "actual": "B03456787",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "1200.00",
+          "actual": "1200.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "252.00",
+          "actual": "252.00",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "228.00",
+          "actual": "228.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "1224.00",
+          "actual": "1224.00",
+          "correct": true
+        }
+      ],
+      "issues": {},
+      "predicted_codes": [],
+      "expected_codes": [],
+      "llm_calls": 0,
+      "cache_hit": true,
+      "seconds": 0.00019333302043378353
+    },
+    {
+      "case_id": "G005",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "SEL-0925-3381",
+          "actual": "SEL-0925-3381",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-08",
+          "actual": "2026-09-08",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B98765431",
+          "actual": "B98765431",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "310.25",
+          "actual": "310.25",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "65.15",
+          "actual": "65.15",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "385.40",
+          "actual": "385.40",
+          "correct": true
+        }
+      ],
+      "issues": {
+        "TOTAL_MISMATCH": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "predicted_codes": [
+        "TOTAL_MISMATCH"
+      ],
+      "expected_codes": [
+        "TOTAL_MISMATCH"
+      ],
+      "llm_calls": 0,
+      "cache_hit": true,
+      "seconds": 0.00019120797514915466
+    },
+    {
+      "case_id": "G006",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "TRN-26-1190",
+          "actual": "TRN-26-1190",
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-09",
+          "actual": "2026-09-09",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B48111223",
+          "actual": "B48111223",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "445.00",
+          "actual": "445.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "93.45",
+          "actual": "93.45",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "538.45",
+          "actual": "538.45",
+          "correct": true
+        }
+      ],
+      "issues": {
+        "LINE_TOTAL_MISMATCH": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "predicted_codes": [
+        "LINE_TOTAL_MISMATCH"
+      ],
+      "expected_codes": [
+        "LINE_TOTAL_MISMATCH"
+      ],
+      "llm_calls": 0,
+      "cache_hit": true,
+      "seconds": 0.0001800829777494073
+    },
+    {
+      "case_id": "G007",
+      "error": "LLM_ERROR: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 10.272655788s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '10s'}]}}",
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "LB-2026-0098",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-10",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B29444339",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "subtotal",
+          "expected": "420.00",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "vat_total",
+          "expected": "88.20",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "total",
+          "expected": "508.20",
+          "actual": null,
+          "correct": false
+        }
+      ],
+      "issues": {
+        "INVALID_TAX_ID": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "predicted_codes": [],
+      "expected_codes": [
+        "INVALID_TAX_ID"
+      ],
+      "llm_calls": 0,
+      "cache_hit": false,
+      "seconds": 0.0
+    },
+    {
+      "case_id": "G008",
+      "error": null,
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-11",
+          "actual": "2026-09-11",
+          "correct": true
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B46871232",
+          "actual": "B46871232",
+          "correct": true
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": "B46123451",
+          "correct": true
+        },
+        {
+          "field": "subtotal",
+          "expected": "32.00",
+          "actual": "32.00",
+          "correct": true
+        },
+        {
+          "field": "vat_total",
+          "expected": "6.72",
+          "actual": "6.72",
+          "correct": true
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": "0.00",
+          "correct": true
+        },
+        {
+          "field": "total",
+          "expected": "38.72",
+          "actual": "38.72",
+          "correct": true
+        }
+      ],
+      "issues": {
+        "MISSING_FIELD": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "predicted_codes": [
+        "MISSING_FIELD"
+      ],
+      "expected_codes": [
+        "MISSING_FIELD"
+      ],
+      "llm_calls": 0,
+      "cache_hit": true,
+      "seconds": 0.0007247499888762832
+    },
+    {
+      "case_id": "G009",
+      "error": "LLM_ERROR: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 52.41016981s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '52s'}]}}",
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "TH-2026-5521",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-12",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B46234563",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B12345674",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "subtotal",
+          "expected": "378.00",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "vat_total",
+          "expected": "79.38",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "total",
+          "expected": "457.38",
+          "actual": null,
+          "correct": false
+        }
+      ],
+      "issues": {
+        "WRONG_RECIPIENT": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "predicted_codes": [],
+      "expected_codes": [
+        "WRONG_RECIPIENT"
+      ],
+      "llm_calls": 0,
+      "cache_hit": false,
+      "seconds": 0.0
+    },
+    {
+      "case_id": "G010",
+      "error": "LLM_ERROR: Error calling model 'gemini-3.6-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 34.070410605s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '34s'}]}}",
+      "fields": [
+        {
+          "field": "invoice_number",
+          "expected": "TH-2026-5540",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "issue_date",
+          "expected": "2026-09-14",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "issuer_tax_id",
+          "expected": "B46234563",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "recipient_tax_id",
+          "expected": "B46123451",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "subtotal",
+          "expected": "380.00",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "vat_total",
+          "expected": "76.00",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "irpf_amount",
+          "expected": "0.00",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "field": "total",
+          "expected": "456.00",
+          "actual": null,
+          "correct": false
+        }
+      ],
+      "issues": {
+        "VAT_AMOUNT_MISMATCH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "predicted_codes": [],
+      "expected_codes": [
+        "VAT_AMOUNT_MISMATCH"
+      ],
+      "llm_calls": 0,
+      "cache_hit": false,
+      "seconds": 0.0
+    }
+  ]
+}

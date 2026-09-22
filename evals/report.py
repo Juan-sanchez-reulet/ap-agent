@@ -18,6 +18,14 @@ class CaseResult:
     seconds: float
 
 
+INFRA_PREFIX = "LLM_ERROR"
+
+
+def was_measured(result: "CaseResult") -> bool:
+    """A quota/network error means the case was not measured, not that it failed."""
+    return not (result.error or "").startswith(INFRA_PREFIX)
+
+
 def _counts_dict(counts: DetectionCounts) -> dict[str, Any]:
     return {
         "tp": counts.tp,
@@ -29,31 +37,35 @@ def _counts_dict(counts: DetectionCounts) -> dict[str, Any]:
 
 
 def summarize(results: list[CaseResult], model: str) -> dict[str, Any]:
-    n = len(results)
+    measured = [r for r in results if was_measured(r)]
+    n = len(measured)
     field_accuracy = (
         {
-            field: sum(s.correct for r in results for s in r.fields if s.field == field) / n
+            field: sum(s.correct for r in measured for s in r.fields if s.field == field) / n
             for field in CRITICAL_FIELDS
         }
         if n
         else {}
     )
     per_code: dict[str, DetectionCounts] = {}
-    for result in results:
+    for result in measured:
         for code, counts in result.issues.items():
             per_code[code] = per_code.get(code, DetectionCounts()) + counts
     overall = reduce(lambda a, b: a + b, per_code.values(), DetectionCounts())
     return {
         "model": model,
-        "cases": n,
-        "extraction_errors": sum(r.error is not None for r in results),
+        "cases": len(results),
+        "measured_cases": n,
+        "not_measured": len(results) - n,
+        "extraction_errors": sum(r.error is not None for r in measured),
         "field_accuracy": field_accuracy,
         "all_critical_fields_correct": (
-            sum(all(s.correct for s in r.fields) for r in results) / n if n else 0.0
+            sum(all(s.correct for s in r.fields) for r in measured) / n if n else 0.0
         ),
         "detection": {code: _counts_dict(c) for code, c in sorted(per_code.items())},
         "detection_overall": _counts_dict(overall),
         "llm_calls": sum(r.llm_calls for r in results),
+        "cache_hits": sum(r.cache_hit for r in results),
         "seconds_total": round(sum(r.seconds for r in results), 1),
     }
 
@@ -66,11 +78,14 @@ def render_markdown(summary: dict[str, Any], results: list[CaseResult]) -> str:
     out = [
         f"# Eval report — {summary['model']}",
         "",
-        f"- Cases: {summary['cases']} · extraction errors: {summary['extraction_errors']}",
+        f"- Cases: {summary['cases']} · measured: {summary['measured_cases']} · "
+        f"not measured (quota/network): {summary['not_measured']} · "
+        f"extraction errors: {summary['extraction_errors']}",
         f"- All critical fields correct: {_pct(summary['all_critical_fields_correct'])}",
         f"- Overall detection: precision {_pct(summary['detection_overall']['precision'])}, "
         f"recall {_pct(summary['detection_overall']['recall'])}",
-        f"- LLM calls: {summary['llm_calls']} · time: {summary['seconds_total']} s",
+        f"- LLM calls: {summary['llm_calls']} · cache hits: {summary['cache_hits']} · "
+        f"time: {summary['seconds_total']} s",
         "",
         "## Extraction accuracy by field",
         "",
@@ -94,12 +109,13 @@ def render_markdown(summary: dict[str, Any], results: list[CaseResult]) -> str:
         "|---|---|---|---|---|",
     ]
     for r in results:
+        error = (r.error or "—").split("{")[0].strip()[:90]
         wrong = (
             ", ".join(f"{s.field} ({s.expected}→{s.actual})" for s in r.fields if not s.correct)
             or "—"
         )
         out.append(
-            f"| {r.case_id} | {r.error or '—'} | {wrong} | "
+            f"| {r.case_id} | {error} | {wrong} | "
             f"{', '.join(r.expected_codes) or '—'} | {', '.join(r.predicted_codes) or '—'} |"
         )
     return "\n".join(out) + "\n"

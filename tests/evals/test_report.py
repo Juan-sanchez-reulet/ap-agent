@@ -38,3 +38,27 @@ def test_render_markdown_contains_tables() -> None:
     assert "| total | 100.0% |" in markdown
     assert "| TOTAL_MISMATCH | 1 | 0 | 0 | 100.0% | 100.0% |" in markdown
     assert "G001" in markdown
+
+
+def test_quota_errors_are_not_counted_as_failures() -> None:
+    ok = _case("G001", True, tp=1)
+    blocked = CaseResult(
+        case_id="G002",
+        error="LLM_ERROR: 429 RESOURCE_EXHAUSTED {...}",
+        fields=[FieldScore("total", "1.00", None, False)],
+        issues={},
+        predicted_codes=[],
+        expected_codes=["TOTAL_MISMATCH"],
+        llm_calls=0,
+        cache_hit=False,
+        seconds=0.0,
+    )
+    summary = summarize([ok, blocked], model="m")
+    assert summary["cases"] == 2
+    assert summary["measured_cases"] == 1
+    assert summary["not_measured"] == 1
+    assert summary["field_accuracy"]["total"] == 1.0
+    assert summary["detection_overall"]["recall"] == 1.0
+    markdown = render_markdown(summary, [ok, blocked])
+    assert "RESOURCE_EXHAUSTED" in markdown
+    assert "{...}" not in markdown  # raw JSON payload is trimmed out of the table
