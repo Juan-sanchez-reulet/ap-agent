@@ -17,12 +17,12 @@
 | Draft vendor bill with account + 21% tax | ✅ | `account.move` `move_type="in_invoice"` stays in `state="draft"`; totals 378.00 / 79.38 / 457.38 as expected |
 | Link bill line to PO line | ✅ | `purchase_line_id` on `account.move.line` |
 | Find bill by vendor + ref (idempotency) | ✅ | `search_read` on `move_type`, `partner_id`, `ref` — this is what makes `create_draft_bill` safe to retry |
-| JSON-2 transport (`/json/2/<model>/<method>`) | ⏳ pending | Needs an API key, which can only be created from the UI (Preferences → Account Security → New API Key). The script already speaks it; only the key is missing. |
+| JSON-2 transport (`/json/2/<model>/<method>`) | ✅ | Same seven steps, identical results (draft bill 378.00 / 79.38 / 457.38). Auth is a bearer API key created from the UI (Preferences → Account Security → New API Key) — there is no way to mint the first key over RPC, so onboarding a customer always has one manual step. |
 
 ## Decision
 
 - [x] **Go:** implement `OdooErp` in week 3. Every model mapping the design assumed is real and reachable over RPC.
-- Transport: prefer **JSON-2** (bearer API key, the documented path in 19+). XML-RPC stays as the fallback and is what these results were produced with; Odoo has it scheduled for removal in v22.
+- Transport: **JSON-2** (bearer API key, the documented path in 19+), verified. XML-RPC stays as the fallback for older instances; Odoo has it scheduled for removal in v22.
 - Access to the external API is *not* gated for self-hosted Community; the "Custom plan only" note in Odoo's docs applies to Odoo Online.
 
 ## Gotchas worth remembering
@@ -30,3 +30,4 @@
 1. **Country before accounting.** Otherwise you get `generic_coa` in USD and, once entries exist, the chart cannot be swapped — the database has to be rebuilt.
 2. `account.chart.template` is not readable over RPC (no group grants it), so the chart cannot be chosen after the fact from a script; it is driven by the company's country.
 3. Product `type="consu"` plus `is_storable=True` is what produces a receipt to validate in 19.
+4. API keys expire (max three months) and the first one must be created by a human in the UI, so `OdooErp` needs a clear "key expired" error path, not a generic 401.
